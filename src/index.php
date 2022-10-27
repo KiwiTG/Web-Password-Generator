@@ -13,11 +13,19 @@ body {
 </style>
 
 <body>
+    
+<?php
+$passCount = fopen("genCount.txt", "r");
+$gnRead = fread($passCount,filesize("genCount.txt"));
+echo nl2br("\nPasswords Generated: <font color=green>".$gnRead);
+echo "<font color=white>";
+fclose($passCount);
+?>
 
 <form method="post" action="pass.php">
-Password Length: <input type="text" name="plen"><br>
+<br>Password Length: <input type="text" name="plen"><br>
 <input type="submit" name="submit" value="Generate Secure Password">
 </form>
 
 </body>
-</html> 
+</html>
